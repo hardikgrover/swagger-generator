@@ -1,0 +1,189 @@
+# swagger: "2.0"
+# info:
+#   title: Thifs is my swagger ui docs
+#   description: This is my company documentation made by me
+#   contact:
+#     email: groverhardik18@gmail.com
+#   liscence:
+#     name: Apache 2.0
+#     url: "http:/apache.org/"
+#   servers:
+#     -url: "http://localhost:4000/"
+#     description: This is my local server
+
+# schemes: [http, https]
+openapi: 3.0.0
+info:
+  title: defaultTitle
+  description: defaultDescription
+  version: "0.1"
+servers:
+  - url: http://localhost:4000
+paths:
+  /service1/create/user:
+    post:
+      summary: Creates a new user.
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+
+      responses:
+        201:
+          description: Created
+
+# paths:
+#   #returns a string
+#   /string:
+#     get:
+#       summary: Returns a string
+#       description: It is just returning a fake string
+#       responses:
+#         200:
+#           description: succsess
+#           schema:
+#             type: string
+#             example: "a fake string"
+#         400:
+#           description: user error
+#         500:
+#           description: internal server error
+#   /user:
+#     get:
+#       summary: returns a single object
+#       description: returning a object
+#       responses:
+#         200:
+#           description: success
+#           schema:
+#             type: object
+#             properties:
+#               id:
+#                 type: integer
+#               name:
+#                 type: string
+#   /users:
+#     get:
+#       summary: returns array of users
+#       description: array return
+#       responses:
+#         200:
+#           description: success
+#           schema:
+#             type: array
+#             items:
+#               type: object
+#               properites:
+#                 id:
+#                   type: integer
+#                 name:
+#                   type: string
+#   /users/{userId}:
+#     get:
+#       summary: return single user
+#       description: array return
+#       parameters:
+#         - name: userId
+#           in: path
+#           required: true
+#           schema:
+#             type: integer
+#       responses:
+#         200:
+#           description: success
+
+#   /create:
+#     post:
+#       summary: posting data
+#       produces:
+#         - application/json
+#       consumes: -application/json
+#       parameters:
+#         - in: body
+#           name: user
+#           schema:
+#             type: object
+#             properites:
+#               id:
+#                 type: integer
+#               name:
+#                 type: string
+#           responses:
+#             200:
+#               description: user body
+# openapi: 3.0.1
+# info:
+#   title: defaultTitle
+#   description: defaultDescription
+#   version: "0.1"
+# servers:
+#   - url: http://localhost:2000
+# paths:
+#   /string1:
+#     get:
+#       description: Auto generated using Swagger Inspector
+#       responses:
+#         "200":
+#           description: Auto generated using Swagger Inspector
+#           content:
+#             text/html; charset=utf-8:
+#               schema:
+#                 type: string
+#               examples: {}
+#       servers:
+#         - url: http://localhost:2000
+#     servers:
+#       - url: http://localhost:2000
+# components: {}
+---
+# openapi: 3.0.0
+# info:
+#   description: |
+#     This is a sample Petstore server.  You can find
+#     out more about Swagger at
+#     [http://swagger.io](http://swagger.io) or on
+#     [irc.freenode.net, #swagger](http://swagger.io/irc/).
+#   version: 1.0.0
+#   title: Swagger Petstore
+#   termsOfService: http://swagger.io/terms/
+#   contact:
+#     email: apiteam@swagger.io
+#   license:
+#     name: Apache 2.0
+#     url: http://www.apache.org/licenses/LICENSE-2.0.html
+# servers:
+#   - description: SwaggerHub API Auto Mocking
+#     url: https://virtserver.swaggerhub.com/apple313/Petstore-Example/1.0.0
+#   - url: https://petstore.swagger.io/v2
+# paths:
+#   "/service1/create/user":
+#     post:
+#       summary: Creates a new user.
+#       parameters:
+#         - in: body
+#           name: user
+#           description: The user to create.
+#           schema:
+#             type: object
+#             required:
+#               - id
+#             properties:
+#               id:
+#                 type: integer
+#               name:
+#                 type: string
+
+#       responses:
+#         "201":
+#           description: Created

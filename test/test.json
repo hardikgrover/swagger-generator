@@ -1,0 +1,257 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Transaction",
+    "description": "Transaction documentation ",
+    "version": "1.0"
+  },
+  "paths": {
+    "/transaction/real": {
+      "post": {
+        "operationId": "real",
+        "tags": ["Account"],
+        "description": "Grant user real money",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "description": "User Id is required",
+                    "type": "number"
+                  },
+                  "amount": {
+                    "description": "Amount is required",
+                    "type": "integer"
+                  },
+                  "remarks": {
+                    "description": "Remarks for DB",
+                    "type": "string"
+                  }
+                },
+                "required": ["userId", "amount", "remarks"]
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/transaction/ib": {
+      "post": {
+        "operationId": "ib",
+        "tags": ["Account"],
+        "description": "Grant user instant bonus",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ib"
+        },
+        "responses": {}
+      }
+    },
+    "/transaction/lb": {
+      "post": {
+        "operationId": "lb",
+        "tags": ["Account"],
+        "description": "Grant user locked bonus",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ib"
+        },
+        "responses": {}
+      }
+    },
+    "/transaction/bb": {
+      "post": {
+        "operationId": "bb",
+        "tags": ["Account"],
+        "description": "Grant user booster bonus",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ib"
+        },
+        "responses": {}
+      }
+    },
+    "/transaction/ticket": {
+      "post": {
+        "operationId": "ticket",
+        "tags": ["Account"],
+        "description": "Grant user ticket",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "description": "User Id is required",
+                    "type": "number"
+                  },
+                  "amount": {
+                    "description": "Amount is required",
+                    "type": "integer"
+                  },
+                  "ticketName": {
+                    "description": "ticket name is required",
+                    "type": "string"
+                  }
+                },
+                "required": ["userId", "amount", "ticketName"]
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/transaction/redeem/process": {
+      "post": {
+        "operationId": "Redeem",
+        "tags": ["Account"],
+        "description": "Deduct amount from user account",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Redeem"
+        },
+        "responses": {}
+      }
+    },
+    "/transaction/redeem/cancel": {
+      "post": {
+        "operationId": "Redeem",
+        "tags": ["Account"],
+        "description": "Add amount from user account",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Redeem"
+        },
+        "responses": {}
+      }
+    },
+    "/transaction/real-to-vip": {
+      "post": {
+        "operationId": "Premium Chips",
+        "tags": ["Premium Chips"],
+        "description": "Add vip chips to user account",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "description": "User Id is required",
+                    "type": "number"
+                  },
+                  "amount": {
+                    "description": "Chips to be converted is required",
+                    "type": "integer"
+                  }
+                },
+                "required": ["userId", "amount"]
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/transaction/account/info": {
+      "get": {
+        "operationId": "User Account Chips",
+        "tags": ["User Account Chips"],
+        "description": "User Account chips",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "User Id is required",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/transaction/freeroll/claim": {
+      "post": {
+        "operationId": "Claim Freeroll Chips",
+        "tags": ["Claim Freeroll Chips"],
+        "description": "Add freeroll chips to user account",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "description": "User Id is required",
+                    "type": "number"
+                  },
+                  "amount": {
+                    "description": "Freeroll chips to be granted is required",
+                    "type": "integer"
+                  }
+                },
+                "required": ["userId", "amount"]
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/api/v1/"
+    }
+  ],
+  "components": {
+    "requestBodies": {
+      "ib": {
+        "content": {
+          "application/x-www-form-urlencoded": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "description": "User Id is required",
+                  "type": "number"
+                },
+                "amount": {
+                  "description": "Amount is required",
+                  "type": "integer"
+                }
+              },
+              "required": ["userId", "amount"]
+            }
+          }
+        }
+      },
+      "Redeem": {
+        "content": {
+          "application/x-www-form-urlencoded": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "description": "User Id is required",
+                  "type": "number"
+                },
+                "realChips": {
+                  "description": "From real is required",
+                  "type": "integer"
+                },
+                "deposit": {
+                  "description": "From deposit is required",
+                  "type": "integer"
+                }
+              },
+              "required": ["userId", "realChips", "deposit"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Thifs is my swagger ui docs",
+    "description": "This is my company documentation made by me",
+    "contact": {
+      "email": "groverhardik18@gmail.com"
+    },
+    "liscence": {
+      "name": "Apache 2.0",
+      "url": "http:/apache.org/"
+    },
+    "servers": {
+      "-url": "http://localhost:4000/",
+      "description": "This is my local server"
+    }
+  },
+  "schemes": ["http", "https"],
+  "paths": {
+    "/string": {
+      "get": {
+        "summary": "Returns a string",
+        "description": "It is just returning a fake string",
+        "responses": {
+          "200": {
+            "description": "succsess",
+            "schema": {
+              "type": "string",
+              "example": "a fake string"
+            }
+          },
+          "400": {
+            "description": "user error"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "summary": "returns a single object",
+        "description": "returning a object",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "returns array of users",
+        "description": "array return",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properites": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "summary": "return single user",
+        "description": "array return",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "summary": "posting data",
+        "produces": ["application/json"],
+        "consumes": "-application/json",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "schema": {
+              "type": "object",
+              "properites": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "user body"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+
+
+

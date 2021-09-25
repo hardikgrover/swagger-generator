@@ -1,0 +1,30 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Thifs is my swagger ui docs",
+    "description": "This is my company documentation made by me",
+    "contact": {
+      "email": "groverhardik18@gmail.com"
+    },
+    "liscence": {
+      "name": "Apache 2.0",
+      "url": "http:/apache.org/"
+    },
+    "servers": {
+      "-url": "http://localhost:4000/",
+      "description": "This is my local server"
+    }
+  },
+  "schemes": [
+    "http",
+    "htpps"
+  ],
+  "paths": {
+    "/string": {
+      "get": {
+        "summary": "Returns a string",
+        "description": "It is just returning a fake string"
+      }
+    }
+  }
+}

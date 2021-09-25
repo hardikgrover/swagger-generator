@@ -1,0 +1,23 @@
+tags
+db
+company server connect
+put and delete request
+delete operation id from query array
+find type and required from req parameters
+testing according to different conditions
+
+
+
+
+
+make route names according to convention (done)
+
+
+
+tags 
+request body  done
+remove unwanted things
+clean code
+responses  
+security array
+update route   done

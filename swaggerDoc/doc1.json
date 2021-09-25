@@ -1,0 +1,139 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "user",
+    "description": "user document",
+    "version": "1.0",
+    "contact": {
+      "email": "groverhardik18@gmail.com"
+    }
+  },
+  "paths": {
+    "/service1/users/{userId}": {
+      "get": {
+        "operationId": "2",
+        "description": "users2",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "description": "2",
+            "required": false,
+            "in": "path",
+            "type": "string",
+            "_id": "614aa5bfe1e9abdaf49d0a77"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/service1/create/user/": {
+      "post": {
+        "operationId": "user",
+        "description": "createuser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/service1/user": {
+      "get": {
+        "description": "user?id=1undefined",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "_id": "614aaf6fe1e9abdaf49d0ab2"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/service1/users": {
+      "get": {
+        "description": "usersundefined",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/service1/user/update": {
+      "put": {
+        "operationId": "update",
+        "description": "userupdate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/service1/user/delete/{id}": {
+      "delete": {
+        "operationId": "delete",
+        "description": "userdelete",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "delete",
+            "required": false,
+            "in": "path",
+            "type": "string",
+            "_id": "614aafbbe1e9abdaf49d0aca"
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}
